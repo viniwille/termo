@@ -4,10 +4,20 @@ import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class WordsReader {
 
-    public static List<String> ReadStringsFromTextFile() {
+    public static String getRandomFiveLetterWord() {
+        List<String> words = WordsReader.readStringsFromTextFile();
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(words.size());
+
+        return words.get(randomIndex);
+    }
+
+    private static List<String> readStringsFromTextFile() {
         String url = "https://www.ime.usp.br/~pf/dicios/br-sem-acentos.txt";
 
         List<String> wordsList = new ArrayList<>();
@@ -30,5 +40,4 @@ public class WordsReader {
             throw new RuntimeException(e);
         }
     }
-
 }
