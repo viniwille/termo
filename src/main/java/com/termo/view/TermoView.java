@@ -10,9 +10,10 @@ public class TermoView {
 
     private JTextField[] letterFields;
     private JLabel resultLabel;
-    private String correctWord = "apple";
+    private String correctWord;
 
-    public TermoView() {
+    public TermoView(String correctWord) {
+        this.correctWord = correctWord;
         createUI();
     }
 
@@ -85,8 +86,7 @@ public class TermoView {
         frame.setVisible(true);
     }
 
-    private static boolean validateWord(String word) {
-        String correctWord = "apple";
-        return word.equalsIgnoreCase(correctWord);
+    private boolean validateWord(String word) {
+        return word.equalsIgnoreCase(this.correctWord);
     }
 }
