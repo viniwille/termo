@@ -28,19 +28,29 @@ public class TermoView {
 
         validateButton.addActionListener(e -> controller.handleValidation(letterFields, resultLabel));
 
-        for (int i = 0; i < letterFields.length; i++) {
-            panel.add(new JLabel("Letter " + (i + 1) + ":"));
-            panel.add(letterFields[i]);
+        JPanel panel2 = new JPanel();
+        panel2.add(new JLabel("TERMO"));
+        JPanel panel3 = new JPanel();
+        panel3.add(new JLabel("Foi sorteada uma palavra aleatória de 5 letras, tente acertar!"));
+
+        for (JTextField letterField : letterFields) {
+            panel.add(letterField);
         }
 
-        panel.add(new JLabel("Enter the word (one letter per field):"));
-        panel.add(new JLabel(""));
-        panel.add(validateButton);
+        JPanel panel4 = new JPanel();
+        panel4.add(new JLabel("Tente acertar a palavra (uma letra por campo): "));
+
+        JPanel panel5 = new JPanel();
+        panel5.add(validateButton);
         panel.add(resultLabel);
         panel.add(Box.createVerticalGlue());
 
         frame.setLocationRelativeTo(null);
+        frame.add(panel2);
+        frame.add(panel3);
         frame.add(panel);
+        frame.add(panel4);
+        frame.add(panel5);
         frame.setVisible(true);
     }
 }
